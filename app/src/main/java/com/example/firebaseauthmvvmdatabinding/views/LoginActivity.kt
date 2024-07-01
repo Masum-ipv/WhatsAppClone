@@ -11,7 +11,7 @@ import com.example.firebaseauthmvvmdatabinding.viewmodel.MyViewModel
 import com.example.firebaseauthmvvmdatabinding.viewmodel.MyViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var viewModel: MyViewModel
+    private lateinit var viewModel: MyViewModel
     lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

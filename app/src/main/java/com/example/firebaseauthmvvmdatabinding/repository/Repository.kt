@@ -35,7 +35,7 @@ class Repository {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     context.startActivity(intent)
                 } else {
-                    Log.w("TAGY", "signInAnonymously:failure", task.exception)
+                    Log.e("TAGY", "signInAnonymously:failure", task.exception)
                 }
             }
     }
@@ -64,6 +64,7 @@ class Repository {
             }
 
             override fun onCancelled(error: DatabaseError) {
+                Log.e("TAGY", "Group List Database Error: " + error.toException())
             }
         }
         )

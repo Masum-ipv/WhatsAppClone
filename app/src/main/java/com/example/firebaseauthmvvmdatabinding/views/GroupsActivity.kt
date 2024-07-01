@@ -21,10 +21,10 @@ import com.example.firebaseauthmvvmdatabinding.viewmodel.MyViewModelFactory
 import com.example.firebaseauthmvvmdatabinding.views.adapter.GroupAdapter
 
 class GroupsActivity : AppCompatActivity() {
-    lateinit var viewModel: MyViewModel
-    lateinit var binding: ActivityGroupsBinding
-    lateinit var recyclerView: RecyclerView
-    lateinit var groupCreateDialog: Dialog
+    private lateinit var binding: ActivityGroupsBinding
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewModel: MyViewModel
+    private lateinit var groupCreateDialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +40,15 @@ class GroupsActivity : AppCompatActivity() {
         viewModel.getChatGroupList().observe(this, Observer {
             binding.recyclerView.adapter = GroupAdapter(it)
         })
+
+        binding.fab.setOnClickListener {
+            showDialog()
+        }
     }
 
     fun showDialog() {
-        groupCreateDialog = Dialog(this)
+        Log.d("TAGY", "Dialog box should be open")
+        groupCreateDialog = Dialog(this@GroupsActivity)
         groupCreateDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         val view = LayoutInflater.from(this)
